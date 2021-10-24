@@ -1,0 +1,58 @@
+<style>
+    .table thead th {
+        border-bottom: 2px solid #212529;
+    }
+</style>
+
+<div  *ngIf="identity">
+    <h1>busca recepcionista</h1>
+    <input type="text"  class="form-control"  [(ngModel)]="filter" (keyup)="applyFilter()" placeholder="Search.."> 
+    <div class="row" style="margin-top: 30px;">
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th>Img</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Sucursal</th>
+                    <th>Ver</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>img</td>
+                    <td>Oswaldo</td>
+                    <td>Granados</td>
+                    <td>oswaldogranados@outlook.es</td>
+                    <td>manzanillo</td>
+                    <td>Ver</td>
+                    <td>btnElimi</td>
+                </tr>
+                <tr>
+                    <td>img</td>
+                    <td>Oswaldo</td>
+                    <td>Granados</td>
+                    <td>oswaldogranados@outlook.es</td>
+                    <td>manzanillo</td>
+                    <td>Ver</td>
+                    <td>btnElimi</td>
+                </tr>
+                <tr>
+                    <td>img</td>
+                    <td>Oswaldo</td>
+                    <td>Granados</td>
+                    <td>oswaldogranados@outlook.es</td>
+                    <td>manzanillo</td>
+                    <td>Ver</td>
+                    <td>btnElimi</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>       
+</div>
+
+<div *ngIf="!identity">
+    <h1>No tienes acceso</h1>
+</div>

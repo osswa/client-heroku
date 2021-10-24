@@ -1,0 +1,136 @@
+<div  *ngIf="identity">
+    <h3>agrega recepcionista</h3>
+    <img [src]="imgURL" style="max-height: 175px; max-width: 250px;" *ngIf="imgURL">
+    <form #agregaRecepcionistaForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="file">Imagen de perfil</label>
+        <br/>
+        <input #file type="file" accept='image/*' (change)="preview(file.files); fileChangeEvent($event)" />        
+        <!-- <input type="file" class="form-control" name="file" (change)="fileChangeEvent($event)" required /> -->
+      </div>
+      <div class="row">
+        <div class="form-group col-6">
+          <label for="inputNombre">Nombre</label>
+          <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="recepcionista.nombre" class="form-control" required>
+        </div>
+        <div class="form-group col">
+          <label for="inputEmail">Email</label>
+          <input type="email" name="email" #email="ngModel" [(ngModel)]="recepcionista.email" class="form-control" required>
+        </div>	   
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="inputApellidoPa">Apellido Paterno</label>
+          <input type="text" name="paterno" #paterno="ngModel" [(ngModel)]="recepcionista.paterno" class="form-control" required>
+        </div>
+        <div class="form-group col">
+          <label for="inputApellidoMa">Apellido Materno</label>
+          <input type="text" name="materno" #materno="ngModel" [(ngModel)]="recepcionista.materno" class="form-control" required>
+        </div>	    
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label>Género</label>
+          <select name="genero" #genero="ngModel" [(ngModel)]="recepcionista.genero" class="custom-select custom-select-md">
+            <option value="" selected disabled>selecciona opción</option>			  
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="indistinto">Indistinto</option>
+          </select>          
+        </div>
+        <div class="form-group col">	    
+        <label for="inputfechaNacimiento">Fecha Nacimiento</label>
+        <input type="date" name="fecha_nacimiento" #fecha_nacimiento="ngModel" [(ngModel)]="recepcionista.fecha_nacimiento" class="form-control">          
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6">
+        <label>Sucursal</label>
+          <select name="sucursal" #sucursal="ngModel" [(ngModel)]="recepcionista.sucursal" class="custom-select custom-select-md">
+            <option value="" selected disabled>selecciona opción</option>			  
+          <option value="colima">Colima</option>
+          <option value="manzanillo">Manzanillo</option>
+          <option value="guadalajara 1">Guadalajara 1</option>
+          <option value="guadalajara 2">Guadalajara 2</option>
+          <option value="guadalajara 3">Guadalajara 3</option>
+        </select>
+        </div>
+        <div class="form-group col-6">
+          <label for="inputCalle">Calle</label>
+          <input type="text" name="calle" #calle="ngModel" [(ngModel)]="recepcionista.calle" class="form-control" required>
+        </div>
+      </div>	  
+      
+      <div class="row">
+        <div class="form-group col-9">
+          <label for="inputColonia">Colonia</label>
+          <input type="text" name="colonia" #colonia="ngModel" [(ngModel)]="recepcionista.colonia" class="form-control" required>
+        </div>
+        <div class="form-group col-3">
+          <label for="inputSangre">Tipo Sangre</label>
+          <select name="sangre" #sangre="ngModel" [(ngModel)]="recepcionista.sangre" class="custom-select custom-select-md">			  
+            <option value="" selected disabled>seleccione opción</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group col-5">
+          <label for="inputCiudad">Ciudad</label>
+          <input type="text" name="ciudad" #ciudad="ngModel" [(ngModel)]="recepcionista.ciudad" class="form-control" required>
+        </div>
+        <div class="form-group col-5">
+          <label for="inputEstado">Estado</label>
+          <input type="text" name="estado" #estado="ngModel" [(ngModel)]="recepcionista.estado" class="form-control" required>
+        </div>
+        <div class="form-group col-2">
+          <label for="inputCp">CP</label>
+          <input type="text" name="cp" #cp="ngModel" [(ngModel)]="recepcionista.cp" class="form-control" required>
+        </div>
+      </div>
+      <div class="row">	  
+        <div class="form-group col-4">
+          <label for="inputTel">Celular</label>
+          <input type="text" pattern="[0-9]{10}" name="telefono" #telefono="ngModel" [(ngModel)]="recepcionista.telefono" class="form-control" required>
+        </div>
+        <div class="form-group col">
+          <label for="inputPass">Password</label>
+          <input type="text" name="pass" #pass="ngModel" [(ngModel)]="recepcionista.pass" class="form-control" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-4">
+          <label for="inputEmer">Tel Emergencia</label>
+          <input type="text" pattern="[0-9]{10}" name="tel_emergencia" #tel_emergencia="ngModel" [(ngModel)]="recepcionista.tel_emergencia" class="form-control" required>
+        </div>
+        <div class="form-group col-4">
+          <label for="inputContacto">Nombre Contacto</label>
+          <input type="text" name="contacto" #contacto="ngModel" [(ngModel)]="recepcionista.contacto" class="form-control" required>
+        </div>
+        <div class="form-group col-4">
+          <label for="inputParentezco">Parentesco</label>
+          <input type="text" name="parentesco" #parentesco="ngModel" [(ngModel)]="recepcionista.parentesco" class="form-control" required>
+        </div>		  
+      </div>
+      
+      <div class="form-group">
+        <label for="filePdf">Documento de identificación oficial (INE, licencia, pasaporte, etc.)</label>
+        <input type="file" class="form-control" id="filePdf" name="filePdf" required />
+      </div>
+     
+      <button style="margin-bottom: 10px;" type="submit" class="btn btn-info btn-lg" id="enviarForm" >Enviar</button>     
+      
+    </form>
+</div>
+
+<div *ngIf="!identity">
+    <h1>No tienes acceso</h1>
+</div>

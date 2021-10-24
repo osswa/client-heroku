@@ -1,0 +1,45 @@
+<div  *ngIf="identity">
+    <div class="row">
+        <div class="col-11"></div>
+        <div class="col-1"><a href="" (click)="logOut()" id="cerrar"><img style="max-width: 40px; margin-top: 40px;"  src="assets/img/salida.png"></a></div>
+    </div>
+    <div class="row" style="margin-top: 12%; height: 50px; /*border-style: solid; border-width: 1px;*/">
+        <div class="col-2" ></div>
+        <div class="col-2" style="padding-left: 5%; /*border-style: solid; border-width: 1px;*/">
+            <a *ngIf="rol == 'admin'" [routerLink]="['/recepcionistaBusca']" id="btnBuscaRec"><img alt="" src="assets/img/buscaRecepcionista.png"></a>
+        </div>
+        <div class="col-4" ></div>
+        <div class="col-2" style="padding-left: 5%; /*border-style: solid; border-width: 1px;*/">
+            <a [routerLink]="['/pacienteBusca']" id="btnBuscaPac"><img src="assets/img/buscaRecepcionista.png"></a>
+        </div>
+        <div class="col-2" ></div>			
+    </div>
+    <div class="row" style="margin-top: 20px; /*border-style: solid; border-width: 1px;*/">
+        <div class="col-2" ></div>
+        <div class="col-2" >
+            <a *ngIf="rol == 'admin'" id="btnHerramientas"><img src="assets/img/btn_herramientas_admin.png"></a>
+        </div>
+        <div class="col-4" style="padding-left: 12%; /*border-style: solid; border-width: 1px;*/">
+            <a href=""><img src="assets/img/calendario.svg"></a>
+        </div>
+        <div class="col-2" >
+            <a id="btnPacientes"><img src="assets/img/btn_encuentra_usuario.png"></a>	
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row" style="margin-top: 20px; height: 50px; /*border-style: solid; border-width: 1px;*/">
+        <div class="col-2"></div>
+        <div class="col-2" style="padding-left: 5%; /*border-style: solid; border-width: 1px;*/">
+            <a *ngIf="rol == 'admin'" [routerLink]="['/recepcionistaAgrega']" id="btnAgregaRec"><img alt="" src="assets/img/agregaRecepcionista.png"></a>
+        </div>
+        <div class="col-4"></div>
+        <div class="col-2" style="padding-left: 5%; /*border-style: solid; border-width: 1px;*/">
+            <a [routerLink]="['/pacienteAgrega']" id="btnAgregaPac"><img src="assets/img/agregaRecepcionista.png"></a>	
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+<div *ngIf="!identity">
+    <h1>No tienes acceso</h1>
+</div>
